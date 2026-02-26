@@ -34,7 +34,7 @@ function loadExternalResource(url, type) {
   ]);
   initWidget({
     waifuPath: live2d_path + 'waifu-tips.json',
-    cdnPath: 'https://fastly.jsdelivr.net/gh/XFJ-YYQF/my-live2d@v1.1.0',
+    cdnPath: 'https://fastly.jsdelivr.net/gh/XFJ-YYQF/my-live2d@main',
     cubism2Path: live2d_path + 'live2d.min.js',
     cubism5Path: 'https://cubism.live2d.com/sdk-web/cubismcore/live2dcubismcore.min.js',
     tools: ['hitokoto', 'photo', 'info', 'quit'],
