@@ -1,4 +1,4 @@
-const live2d_path = 'https://s4.zstatic.net/npm/live2d-widgets@1.0.0-rc.7/dist/';
+const live2d_path = 'https://fastly.jsdelivr.net/npm/live2d-widgets@1.0.0-rc.6/dist/';
 
 function loadExternalResource(url, type) {
   return new Promise((resolve, reject) => {
@@ -21,6 +21,13 @@ function loadExternalResource(url, type) {
 }
 
 (async () => {
+  const OriginalImage = window.Image;
+  window.Image = function(...args) {
+    const img = new OriginalImage(...args);
+    img.crossOrigin = "anonymous";
+    return img;
+  };
+  window.Image.prototype = OriginalImage.prototype;
   await Promise.all([
     loadExternalResource(live2d_path + 'waifu.css', 'css'),
     loadExternalResource(live2d_path + 'waifu-tips.js', 'js')
@@ -29,6 +36,9 @@ function loadExternalResource(url, type) {
     waifuPath: live2d_path + 'waifu-tips.json',
     cdnPath: 'https://fastly.jsdelivr.net/gh/XFJ-YYQF/my-live2d@v1.0.8/',
     cubism2Path: live2d_path + 'live2d.min.js',
+    cubism5Path: 'https://cubism.live2d.com/sdk-web/cubismcore/live2dcubismcore.min.js',
+    tools: ['hitokoto', 'photo', 'info', 'quit'],
+    logLevel: 'warn',
     drag: true,
   });
 })();
