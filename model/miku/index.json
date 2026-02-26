@@ -1,0 +1,8 @@
+{
+    "models": [
+        "miku3.model3.json"
+    ],
+    "messages": [
+        "你好呀！"
+    ]
+}
